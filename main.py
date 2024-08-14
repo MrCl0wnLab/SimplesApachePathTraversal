@@ -28,8 +28,8 @@ urllib3.disable_warnings()
 
 def str_clear(_value_str:str):
     if _value_str:
-        _value_str = _value_str.replace("/n","")
-        _value_str = _value_str.replace("/t","")
+        _value_str = _value_str.replace("/n", "")
+        _value_str = _value_str.replace("/t", "")
     return _value_str
 
 def cs(_color_str: str):
@@ -211,9 +211,9 @@ if __name__ == '__main__':
     FIRULA_ERR = '[ ERR ]'
 
     parser = argparse.ArgumentParser(
-        prog='tool',
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        description=textwrap.dedent(
+        prog = 'tool',
+        formatter_class = argparse.RawDescriptionHelpFormatter,
+        description = textwrap.dedent(
         '''\
     [!] Check: CVE-2021-41773, CVE-2021-42013, CVE-2020-17519
     [!] File exploits: /assets/exploits.json
@@ -224,25 +224,24 @@ if __name__ == '__main__':
     python main.py --range 192.168.15.1,192.168.15.100 --thread 30 
     python main.py --file fbi.gov.txt  --thread 15 --timeout 3 
     python main.py --file gov.ru.txt  --debug
-
     ''') 
     )
 
     banner()
 
-    parser.add_argument('--file', help='Input your target host lists',
-                        metavar='<ips.txt>',  required=False)
-    parser.add_argument('--range', help='Set range IP Eg.: 192.168.15.1,192.168.15.100',
-                        metavar='<ip-start>,<ip-end>', required=False)
-    parser.add_argument('--thread', '-t', help='Eg. 20',
-                        metavar='<20>', default=CONFIG_THREAD, required=False)
+    parser.add_argument('--file', help = 'Input your target host lists',
+                        metavar = '<ips.txt>',  required = False)
+    parser.add_argument('--range', help = 'Set range IP Eg.: 192.168.15.1,192.168.15.100',
+                        metavar = '<ip-start>,<ip-end>', required = False)
+    parser.add_argument('--thread', '-t', help = 'Eg. 20',
+                        metavar = '<20>', default = CONFIG_THREAD, required = False)
 
-    parser.add_argument('--ssl', help='Enable request with SSL ',
-                        action='store_true', default=False)
-    parser.add_argument('--timeout', help='Set connection timeout',
-                        default=5, metavar='<5>', required=False)
-    parser.add_argument('--debug', '-d', help='Enable debug mode ',
-                        action='store_true', default=False)
+    parser.add_argument('--ssl', help = 'Enable request with SSL ',
+                        action = 'store_true', default = False)
+    parser.add_argument('--timeout', help = 'Set connection timeout',
+                        default = 5, metavar = '<5>', required = False)
+    parser.add_argument('--debug', '-d', help = 'Enable debug mode ',
+                        action = 'store_true', default = False)
 
     arg_menu = parser.parse_args()
 
